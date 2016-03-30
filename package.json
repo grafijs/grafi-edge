@@ -1,0 +1,33 @@
+{
+  "name": "grafi-edge",
+  "version": "0.0.0",
+  "description": "",
+  "main": "grafi-edge.js",
+  "scripts": {
+    "test": "node grafi-edge.test.js",
+    "build": "node_modules/.bin/smash src/_blueprint.js | node_modules/.bin/standard-format - > grafi-edge.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grafijs/grafi-edge.git"
+  },
+  "keywords": [
+    "grafi",
+    "images",
+    "image",
+    "graphics",
+    "graphic",
+    "canvas"
+  ],
+  "author": "The Grafi Project Contributors (http://grafijs.org/)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/grafijs/grafi/issues"
+  },
+  "homepage": "https://github.com/grafijs/grafi-edge#readme",
+  "devDependencies": {
+    "smash": "0.0.15",
+    "standard-format": "2.1.1",
+    "grafi-formatter": "git://github.com/grafijs/grafi-formatter.git"
+  }
+}
