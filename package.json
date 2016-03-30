@@ -28,6 +28,8 @@
   "devDependencies": {
     "smash": "0.0.15",
     "standard-format": "2.1.1",
-    "grafi-formatter": "git://github.com/grafijs/grafi-formatter.git"
+    "grafi-formatter": "git://github.com/grafijs/grafi-formatter.git",
+    "grafi-convolution": "git://github.com/grafijs/grafi-convolution.git",
+    "grafi-grayscale": "git://github.com/grafijs/grafi-grayscale.git"
   }
 }

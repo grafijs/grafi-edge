@@ -3,23 +3,43 @@
   <h1>original</h1>
   <img id="original">
   <h1>processed</h1>
-  <canvas id="canvas"></canvas>
+  <div id="slider" hidden>
+    <input id="level" type="range" min="1" max="10" value="1"/>
+    <label id="label">1</label>
+  </div>
+  <canvas id="canvas" hidden></canvas>
+  <canvas id="output"></canvas>
   <script src="grafi-edge.js"></script>
   <script>
+    var slider = document.getElementById('slider')
+    var level = document.getElementById('level')
+    var label = document.getElementById('label')
     var original = document.getElementById('original')
-    var output = document.getElementById('canvas')
+    var output = document.getElementById('output')
+    var canvas = document.getElementById('canvas')
+    var canvasCtx = canvas.getContext('2d')
     var outputCtx = output.getContext('2d')
     var reader = new FileReader()
     reader.onload = function() {
       original.src = reader.result
     }
     original.onload = function () {
+      slider.hidden = false
       output.width = original.width
       output.height = original.height
-      outputCtx.drawImage(original, 0, 0)
-      newImage = grafi.edge(outputCtx.getImageData(0, 0, original.width, original.height))
+      canvas.width = original.width
+      canvas.height = original.height
+      canvasCtx.drawImage(original, 0, 0)
+      newImage = grafi.edge(canvasCtx.getImageData(0, 0, original.width, original.height), {level: level.value})
       outputCtx.putImageData(newImage, 0, 0)
+      level.oninput = function() {
+        var levelNum = this.value
+        var updatedImage = grafi.edge(canvasCtx.getImageData(0, 0, original.width, original.height), {level: levelNum})
+        outputCtx.putImageData(updatedImage, 0, 0)
+        label.innerText = levelNum
+      }
     }
+
   </script>
 
 </hmtl>
